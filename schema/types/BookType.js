@@ -1,4 +1,6 @@
-import { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLInt } from 'graphql';
+import { GraphQLInt, GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql';
+import fetch from 'node-fetch';
+import { CharacterType } from './CharacterType';
 
 export const BookType = new GraphQLObjectType({
   name: 'BookType',
@@ -12,7 +14,17 @@ export const BookType = new GraphQLObjectType({
     country: { type: GraphQLString },
     mediaType: { type: GraphQLString },
     released: { type: GraphQLString },
-    characters: { type: GraphQLList(GraphQLString) },
-    povCharacters: { type: GraphQLList(GraphQLString) },
+    characters: {
+      type: GraphQLList(CharacterType),
+      resolve: (parent, args) =>
+        parent.characters
+          .map(character => fetch(character).then(res => res.json()))
+    },
+    povCharacters: {
+      type: GraphQLList(CharacterType),
+      resolve: (parent, args) =>
+        parent.povCharacters
+          .map(character => fetch(character).then(res => res.json()))
+    },
   })
 });
