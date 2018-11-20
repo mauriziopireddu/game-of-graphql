@@ -1,17 +1,19 @@
-import {
-  GraphQLSchema,
-  GraphQLObjectType
-} from 'graphql';
+import { GraphQLObjectType, GraphQLSchema, GraphQLID } from 'graphql';
+import fetch from 'node-fetch';
+import { CONFIG } from '../config';
+import { CharacterType } from './types/CharacterType';
 
-const QueryType = new GraphQLObjectType({
-  name: 'Query',
-  description: '...',
+const RootQuery = new GraphQLObjectType({
+  name: 'RootQueryType',
+  fields: {
+    character: {
+      type: CharacterType,
+      args: { id: { type: GraphQLID } },
+      resolve: (parent, args) =>
+        fetch(`${CONFIG.BASE_URL}/characters/${args.id}`)
+          .then(res => res.json())
+    }
+  }
+});
 
-  fields: () => ({
-    
-  })
-})
-
-export default new GraphQLSchema({
-  query: QueryType,
-})
+export const schema = new GraphQLSchema({ query: RootQuery });
