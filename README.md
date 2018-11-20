@@ -1,5 +1,5 @@
 # ⚔️Game of GraphQL
-❄️🔥**A GraphQL demo of Ice and Fire**
+❄️**A GraphQL demo of Ice and Fire** 🔥
 
 The GraphQL schema in this example resolves data by fetching it via HTTP from the REST-ful endpoints of the anapioficeandfire.com website.
 
