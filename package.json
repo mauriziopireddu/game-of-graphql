@@ -1,0 +1,32 @@
+{
+  "name": "game-of-graphql",
+  "version": "1.0.0",
+  "description": "A GraphQL demo of Ice and Fire",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauriziopireddu/game-of-graphql.git"
+  },
+  "keywords": [
+    "graphql",
+    "node",
+    "npm",
+    "express",
+    "game-of-thrones"
+  ],
+  "author": "Maurizio Pireddu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mauriziopireddu/game-of-graphql/issues"
+  },
+  "homepage": "https://github.com/mauriziopireddu/game-of-graphql#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2",
+    "nodemon": "^1.18.6"
+  }
+}
