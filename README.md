@@ -13,7 +13,6 @@ Node >=4.2.3 (Download from https://nodejs.org/en/download/)
 
 ## Running the example
 
-    # Follow the instructions to start the Node server, then...
     npm start
 
 Visit http://localhost:4000/graphiql
