@@ -1,7 +1,8 @@
 import express from 'express';
 import graphQLHTTP from 'express-graphql';
+import { CONFIG } from './config';
 
-import schema from './schema';
+import schema from './schema/schema';
 
 const app = express();
 
@@ -10,4 +11,4 @@ app.use(graphQLHTTP({
   graphiql: true
 }))
 
-app.listen(4000, () => console.log('Express GraphQL Server Now Running On localhost:4000/graphql'));
+app.listen(CONFIG.PORT, () => console.log(`Server running on localhost:${CONFIG.PORT}/graphql`));
